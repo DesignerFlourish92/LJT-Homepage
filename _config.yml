@@ -2,13 +2,10 @@
 #
 # This config file is meant for settings that affect your entire site, values
 # which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve -l -H localhost`. If you change this file, please restart the 
-# server process.
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "default"
 title                    : "Junteng Liu"
 title_separator          : "-"
 name                     : &name "Junteng Liu"
@@ -18,10 +15,7 @@ baseurl                  : "/LJT-Homepage"
 repository               : "DesignerFlourish92/LJT-Homepage"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
-#               If a field is blank the icon and link will not appear, otherwise it will be shown.
-#               Additional customization can be done by editing /_includes/author-profile.html
 author:
-  # Biographic information
   avatar           : "profile.png"
   name             : "Junteng Liu"
   pronouns         :
@@ -44,7 +38,6 @@ author:
   researchgate     :
   scopus           :
   zotero           :
-
 
   # Repositories and software development
   bitbucket        :
@@ -90,10 +83,10 @@ publication_category:
 
 # Site Settings
 teaser                   :
-breadcrumbs              : false # true, false (default)
+breadcrumbs              : false
 words_per_minute         : 160
 future                   : true
-read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
+read_more                : "disabled"
 talkmap_link             : false
 comments:
   provider               :
@@ -105,33 +98,15 @@ comments:
     appid                :
     num_posts            :
     colorscheme          :
-staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "master"
-  commitMessage          : "New comment."
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "_data/comments/{options.slug}"
-  requiredFields         : ['name', 'email', 'message']
-  transforms:
-    email                : "md5"
-  generatedFields:
-    date:
-      type               : "date"
-      options:
-        format           : "iso8601"
 atom_feed:
   hide                   : true
   path                   :
-
 
 # SEO Related
 google_site_verification :
 bing_site_verification   :
 alexa_site_verification  :
 yandex_site_verification :
-
 
 # Social Sharing
 twitter:
@@ -142,8 +117,6 @@ facebook:
   publisher              :
 og_image                 :
 og_description           :
-# For specifying social profiles
-# - https://developers.google.com/structured-data/customize/social-profiles
 social:
   type                   : Person
   name                   : "Junteng Liu"
@@ -151,19 +124,16 @@ social:
     - "https://github.com/Vicent0205"
     - "https://scholar.google.com/citations?hl=en&user=tbK9jl4AAAAJ&view_op=list_works&sortby=pubdate"
 
-
 # Analytics
 analytics:
   provider               : "false"
   google:
     tracking_id          :
 
-
 # Reading Files
 include:
   - .htaccess
   - _pages
-  - files
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -172,23 +142,35 @@ exclude:
   - .github
   - .jekyll-assets-cache
   - .sass-cache
+  - AGENTS.md
+  - Dockerfile
+  - README.md
   - assets/js/_main.js
   - assets/js/plugins
   - assets/js/vendor
   - CHANGELOG
   - Capfile
   - config
-  - Dockerfile
+  - docker-compose.yaml
+  - files
   - Gemfile
   - Gruntfile.js
   - gulpfile.js
+  - images/500x300.png
+  - images/editing-talk.png
+  - images/wiki
   - LICENSE
   - local
   - log
+  - markdown_generator
   - node_modules
   - package.json*
   - Rakefile
-  - README
+  - scripts
+  - talkmap
+  - talkmap.ipynb
+  - talkmap.py
+  - talkmap_out.ipynb
   - tmp
   - vendor
 keep_files:
@@ -197,14 +179,12 @@ keep_files:
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
-
 # Conversion
 markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
-
 
 # Markdown Processing
 kramdown:
@@ -217,13 +197,11 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
-
 # These settings control the types of collections used by the template
 collections:
   publications:
     output: true
     permalink: /:collection/:path/
-
 
 # These settings control how pages and collections are included in the site
 defaults:
@@ -241,17 +219,14 @@ defaults:
       author_profile: true
       share: true
 
-
 # Sass/SCSS
 sass:
   sass_dir: _sass
   style: compressed
 
-
 # Outputting
 permalink: /:categories/:title/
 timezone: Etc/UTC
-
 
 # Plugins
 plugins:
@@ -262,7 +237,6 @@ plugins:
   - jekyll-redirect-from
   - jemoji
 
-# Mimic GitHub Pages with --safe
 whitelist:
   - jekyll-feed
   - jekyll-gist
@@ -270,7 +244,6 @@ whitelist:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jemoji
-
 
 # Archives
 category_archive:
@@ -280,9 +253,7 @@ tag_archive:
   type: liquid
   path: /tags/
 
-
 # HTML Compression
-# - https://jch.penibelst.de/
 compress_html:
   clippings: all
   ignore:

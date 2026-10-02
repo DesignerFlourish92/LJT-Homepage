@@ -53,3 +53,6 @@ jobs:
           grep -q "NeurIPS 2023" _site/publications/index.html
           ! grep -rq "Your Name" _site
           ! grep -rq "GitHub University" _site
+          ! test -e _site/markdown_generator
+          ! test -e _site/talkmap
+          ! test -e _site/files/paper1.pdf
