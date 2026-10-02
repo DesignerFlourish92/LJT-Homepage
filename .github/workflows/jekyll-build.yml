@@ -42,15 +42,38 @@ jobs:
 
       - name: Verify generated content
         run: |
-          test -f _site/index.html
-          test -f _site/publications/index.html
-          test -f _site/cv/index.html
+          set -e
+          for page in _site/index.html _site/publications/index.html _site/cv/index.html; do
+            test -f "$page"
+          done
+
+          # Every publication is listed on the home page, the publications page and the CV
+          for title in \
+            "SynLogic" \
+            "Perception Bottleneck" \
+            "Universal Truthfulness Hyperplane" \
+            "In-Context Sharpness as Alerts" \
+            "C-Eval" \
+            "Composing Parameter-Efficient Modules" \
+            "Vicent0205" \
+            "junteng88716710"; do
+            grep -q "$title" _site/index.html
+            grep -q "$title" _site/publications/index.html
+            grep -q "$title" _site/cv/index.html
+          done
+
+          # Background, experience and contact details
           grep -q "Junteng Liu" _site/index.html
           grep -q "jliugi@connect.ust.hk" _site/index.html
-          grep -q "SynLogic" _site/index.html
+          grep -q "Hong Kong University of Science and Technology" _site/index.html
+          grep -q "Shanghai Jiao Tong University" _site/index.html
+          grep -q "Junxian He" _site/index.html
+          grep -q "MINIMAX" _site/index.html
+          grep -q "Tencent WXG" _site/index.html
+          grep -q "Shanghai AI Lab" _site/index.html
           grep -q "Zhiyuan Honor Scholarship" _site/index.html
-          grep -q "MINIMAX" _site/cv/index.html
-          grep -q "NeurIPS 2023" _site/publications/index.html
+
+          # No template placeholder or demo content is published
           ! grep -rq "Your Name" _site
           ! grep -rq "GitHub University" _site
           ! test -e _site/markdown_generator
